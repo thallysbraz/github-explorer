@@ -4,6 +4,7 @@ import { FiChevronRight } from "react-icons/fi";
 import logoImg from "../../assets/logo.svg";
 import { Title, Form, Repositories } from "./styles";
 
+//pagina de dashboard
 const Dashboard: React.FC = () => {
   return (
     <>
