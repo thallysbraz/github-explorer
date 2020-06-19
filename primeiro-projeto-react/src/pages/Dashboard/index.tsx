@@ -4,6 +4,7 @@ import { FiChevronRight } from "react-icons/fi";
 import logoImg from "../../assets/logo.svg";
 import { Title, Form, Repositories } from "./styles";
 import api from "../../services/api";
+import Repository from "../Repository";
 
 interface Repository {
   full_name: string;
@@ -28,6 +29,7 @@ const Dashboard: React.FC = () => {
     const repository = response.data; //pegando somente os dados das respostas
 
     setRepositories([...repositories, repository]);
+    setNewRepo("");
   }
 
   return (
@@ -44,18 +46,20 @@ const Dashboard: React.FC = () => {
       </Form>
 
       <Repositories>
-        <a href="teste">
-          <img
-            src="https://avatars1.githubusercontent.com/u/39064364?s=460&u=c3194c358999291b375d3555065c5518ba10dde4&v=4"
-            alt="Image"
-          />
-          <div>
-            <strong>BootCamp primeiro projeto</strong>
-            <p>Uma descrição qualquer</p>
-          </div>
+        {repositories.map((repository) => (
+          <a key={repository.full_name} href="teste">
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+            <div>
+              <strong>{repository.full_name}</strong>
+              <p>{repository.description}</p>
+            </div>
 
-          <FiChevronRight size={20} />
-        </a>
+            <FiChevronRight size={20} />
+          </a>
+        ))}
       </Repositories>
     </>
   );
