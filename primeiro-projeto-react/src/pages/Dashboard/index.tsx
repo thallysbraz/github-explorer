@@ -4,7 +4,7 @@ import { FiChevronRight } from "react-icons/fi";
 
 import logoImg from "../../assets/logo.svg";
 import api from "../../services/api";
-import Repository from "../Repository";
+//import Repository from "../Repository";
 import { Title, Form, Repositories, Error } from "./styles";
 
 interface Repository {
